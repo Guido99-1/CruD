@@ -14,7 +14,7 @@ namespace Datos
         public static List<ProductoMsg> DevolverListadoProductos()
         {
             List<ProductoMsg> listaProductos = new List<ProductoMsg>();
-            SqlConnection cn = new SqlConnection(Settings1.Default.Conexion);
+            SqlConnection cn = new SqlConnection(Settings1.Default.ConexionR);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -50,7 +50,7 @@ namespace Datos
         }
         public static void InsertarProductos(ProductoMsg pro)
         {
-            SqlConnection conexion = new SqlConnection(Settings1.Default.Conexion);
+            SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionR);
             conexion.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexion;
@@ -77,7 +77,7 @@ namespace Datos
         }
         public static void ActualizarProducto(ProductoMsg pro)
         {
-            SqlConnection conexion = new SqlConnection(Settings1.Default.Conexion);
+            SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionR);
             conexion.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexion;
@@ -102,7 +102,7 @@ namespace Datos
         }
         public static void EliminarProducto(int id)
         {
-            SqlConnection conexion = new SqlConnection(Settings1.Default.Conexion);
+            SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionR);
             conexion.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexion;
