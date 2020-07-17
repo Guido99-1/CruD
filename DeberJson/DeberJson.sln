@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{CA980AA2-C17A-441E-B765-7DC32B441DAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiciosWeb", "ServiciosWeb\ServiciosWeb.csproj", "{572605C5-51EB-4263-8574-61B396FAEB0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiciosJson", "ServiciosJson\ServiciosJson.csproj", "{7E4270D1-050B-4313-B1E5-44859F48B4AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{CA980AA2-C17A-441E-B765-7DC32B441DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA980AA2-C17A-441E-B765-7DC32B441DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA980AA2-C17A-441E-B765-7DC32B441DAA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{572605C5-51EB-4263-8574-61B396FAEB0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{572605C5-51EB-4263-8574-61B396FAEB0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{572605C5-51EB-4263-8574-61B396FAEB0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{572605C5-51EB-4263-8574-61B396FAEB0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E4270D1-050B-4313-B1E5-44859F48B4AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E4270D1-050B-4313-B1E5-44859F48B4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E4270D1-050B-4313-B1E5-44859F48B4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E4270D1-050B-4313-B1E5-44859F48B4AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
