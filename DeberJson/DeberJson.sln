@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonCruD", "JsonCruD\JsonCr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{83D383F5-4875-4FA1-975D-3CE87F8BE126}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{CA980AA2-C17A-441E-B765-7DC32B441DAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{83D383F5-4875-4FA1-975D-3CE87F8BE126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83D383F5-4875-4FA1-975D-3CE87F8BE126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83D383F5-4875-4FA1-975D-3CE87F8BE126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA980AA2-C17A-441E-B765-7DC32B441DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA980AA2-C17A-441E-B765-7DC32B441DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA980AA2-C17A-441E-B765-7DC32B441DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA980AA2-C17A-441E-B765-7DC32B441DAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
