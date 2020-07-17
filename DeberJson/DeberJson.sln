@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonCruD", "JsonCruD\JsonCruD.csproj", "{962E5178-C531-4952-825B-D00DF49604D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaDatos", "BibliotecaDatos\BibliotecaDatos.csproj", "{C4CBBF39-0900-415A-91D6-B1AA621D75C3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{962E5178-C531-4952-825B-D00DF49604D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{962E5178-C531-4952-825B-D00DF49604D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{962E5178-C531-4952-825B-D00DF49604D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4CBBF39-0900-415A-91D6-B1AA621D75C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4CBBF39-0900-415A-91D6-B1AA621D75C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4CBBF39-0900-415A-91D6-B1AA621D75C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4CBBF39-0900-415A-91D6-B1AA621D75C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
