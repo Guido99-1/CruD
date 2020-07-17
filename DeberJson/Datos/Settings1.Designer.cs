@@ -26,8 +26,7 @@ namespace Datos {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C8D8LVA\\SISTEMASSOPORTE6;Initial Catalog=NORTHWND;Integrated " +
-            "Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JOSÉ\\PROGRAMACION;Initial Catalog=NORTHWND;Integrated Security=True")]
         public string Conexion {
             get {
                 return ((string)(this["Conexion"]));
