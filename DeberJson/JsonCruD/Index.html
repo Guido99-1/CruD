@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="jscript/JavaScript001.js"></script>
+</head>
+
+<body>
+    <!-- definir elemeto -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="jumbotron">Saludos Programadores</h1>
+                <div id="app">
+                    <table class="table table-stripped">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;"></th>
+                                <th>Desciprcion</th>
+                                <th style="width: 200px;">Monto</th>
+                                <th style="width: 100px;">¿Pagado?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="text" class="form-control" v-model="newEntry.name">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" v-model="newEntry.amount">
+                                </td>
+                                <td>
+                                    <!-- v-on-click0  ->  @click   -->
+                                    <button @click="add()" type="button"
+                                            class="btn btn-success btn-block">
+                                        Agregar
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr v-if="items.length === 0">
+                                <td colspan="4" class="text-center">
+                                    Ya no existen elementos por eliminar
+                                </td>
+                            </tr>
+                            <tr v-for="item, indice in items">
+                                <td>
+                                    <button v-on:click="remove(indice)" type="button" class="btn btn-danger btn-xs">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </button>
+                                </td>
+                                <td> {{item.name}} </td>
+                                <td> {{item.amount.toFixed(2)}} </td>
+                                <td class="text-center" v-bind:title="item.paid? 'SI':'NO'">
+                                    <!-- {{item.paid}} -->
+                                    <!-- Model View View Model -->
+                                    <button @click="changePaid(item)" v-bind:class="{ 'btn-success': item.paid }"
+                                            class="btn btn-default btn-sm">
+                                        <i v-if="item.paid" class="glyphicon glyphicon-ok"></i>
+                                        <i v-if="!item.paid" class="glyphicon glyphicon-remove"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td class="text-right">Pendiente de Pago</td>
+                                <td>{{ totalAmount(0) }}</td>
+                                <td> </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="text-right">Pagado</td>
+                                <td> {{ totalAmount(1) }}</td>
+                                <td> </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="text-right">Total</td>
+                                <td> {{ totalAmount(2) }}</td>
+                                <td> </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
