@@ -43,7 +43,7 @@
                 <tr>
                     <td >
                         <asp:GridView ID="GridView2" runat="server" Width="100%" AutoGenerateColumns="False" 
-                            CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="ProductID" OnRowEditing="GridView2_RowEditing" OnRowDeleting="GridView2_RowDeleting" OnRowUpdating="GridView2_RowUpdating" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+                            CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="ProductID" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

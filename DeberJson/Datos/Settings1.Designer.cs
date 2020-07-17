@@ -32,5 +32,16 @@ namespace Datos {
                 return ((string)(this["Conexion"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-PUNPDF8\\SSD;Initial Catalog=NORTHWND;Integrated Security=True" +
+            "")]
+        public string ConexionR {
+            get {
+                return ((string)(this["ConexionR"]));
+            }
+        }
     }
 }

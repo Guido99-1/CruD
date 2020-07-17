@@ -15,7 +15,7 @@ namespace ServiciosJson
     public interface IServiceProductos
     {
         [OperationContract]
-        [WebGet(UriTemplate = "ConsultarProductos",
+        [WebGet(UriTemplate = "DevolverProductos",
         ResponseFormat = WebMessageFormat.Json,
          RequestFormat = WebMessageFormat.Json)]
         List<ProductoMsg> ConsultarPersonas();
