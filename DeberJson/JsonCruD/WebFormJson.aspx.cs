@@ -19,7 +19,7 @@ namespace JsonCruD
         private string url = "http://localhost:52707/ServiceProductos.svc/";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            // 52707/ServiceProductos.svc/DevolverProductos 
             {
                 CargarDatos();
             }
