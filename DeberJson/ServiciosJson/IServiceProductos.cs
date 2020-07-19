@@ -15,9 +15,33 @@ namespace ServiciosJson
     public interface IServiceProductos
     {
         [OperationContract]
-        [WebGet(UriTemplate = "DevolverProductos",
+        [WebInvoke(Method = "GET" ,UriTemplate = "DevolverProductos",
         ResponseFormat = WebMessageFormat.Json,
          RequestFormat = WebMessageFormat.Json)]
-        List<ProductoMsg> ConsultarPersonas();
+       List<ProductoMsg> ConsultarProducto();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "DevolverProductos/{id}",
+      ResponseFormat = WebMessageFormat.Json,
+       RequestFormat = WebMessageFormat.Json)]
+        ProductoMsg BuscarProducto(string id);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "Insertar",
+        ResponseFormat = WebMessageFormat.Json,
+        RequestFormat = WebMessageFormat.Json)]
+        bool InsertarProducto(ProductoMsg pro);
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", UriTemplate = "Actualizar",
+        ResponseFormat = WebMessageFormat.Json,
+        RequestFormat = WebMessageFormat.Json)]
+       bool ActualizarProducto(ProductoMsg pro);
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", UriTemplate = "Eliminar",
+      ResponseFormat = WebMessageFormat.Json,
+      RequestFormat = WebMessageFormat.Json)]
+        bool EliminarProducto(ProductoMsg pro);
     }
 }

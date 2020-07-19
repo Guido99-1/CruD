@@ -26,6 +26,17 @@ namespace Datos {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-PUNPDF8\\SSD;Initial Catalog=NORTHWND;Integrated Security=True" +
+            "")]
+        public string ConexionR {
+            get {
+                return ((string)(this["ConexionR"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JOSÉ\\PROGRAMACION;Initial Catalog=NORTHWND;Integrated Security=True")]
         public string Conexion {
             get {
@@ -36,11 +47,11 @@ namespace Datos {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-PUNPDF8\\SSD;Initial Catalog=NORTHWND;Integrated Security=True" +
-            "")]
-        public string ConexionR {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C8D8LVA\\SISTEMASSOPORTE6;Initial Catalog=NORTHWND;Integrated " +
+            "Security=True")]
+        public string ConexionM {
             get {
-                return ((string)(this["ConexionR"]));
+                return ((string)(this["ConexionM"]));
             }
         }
     }

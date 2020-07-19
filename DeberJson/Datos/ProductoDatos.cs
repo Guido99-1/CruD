@@ -14,7 +14,7 @@ namespace Datos
         public static List<ProductoMsg> DevolverListadoProductos()
         {
             List<ProductoMsg> listaProductos = new List<ProductoMsg>();
-            SqlConnection cn = new SqlConnection(Settings1.Default.ConexionR);
+            SqlConnection cn = new SqlConnection(Settings1.Default.ConexionM);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -38,7 +38,7 @@ namespace Datos
                     producto.SupplierID = Convert.ToInt32(dr["SupplierID"].ToString());
                     producto.CategoryID = Convert.ToInt32(dr["CategoryID"].ToString());
                     producto.QuantityPerUnit = dr["QuantityPerUnit"].ToString();
-                    producto.UnitPrice = Convert.ToDouble(dr["UnitPrice"].ToString());
+                    producto.UnitPrice = Convert.ToDecimal(dr["UnitPrice"].ToString());
                     producto.UnitsInStock = Convert.ToInt32(dr["UnitsInStock"].ToString());
                     //cargar a la lista los valores de producto
                     listaProductos.Add(producto);
@@ -48,13 +48,55 @@ namespace Datos
             cn.Close();
             return listaProductos;
         }
-        public static void InsertarProductos(ProductoMsg pro)
+
+        public static ProductoMsg BuscarProductos(int id)
         {
-            SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionR);
-            conexion.Open();
+            List<ProductoMsg> listaProductos = new List<ProductoMsg>();
+            SqlConnection cn = new SqlConnection(Settings1.Default.ConexionM);
+            cn.Open();
             SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexion;
-            cmd.CommandText = @" INSERT INTO[dbo].[Products]
+            cmd.Connection = cn;
+            cmd.CommandText = @" SELECT 
+	                             ProductID
+                                ,ProductName
+                                ,SupplierID
+                                ,CategoryID
+                                ,QuantityPerUnit
+                                ,UnitPrice
+                                ,UnitsInStock
+                                FROM Products
+                                where ProductID = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.CommandType = CommandType.Text;
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    ProductoMsg producto = new ProductoMsg();
+                    producto.ProductID = Convert.ToInt32(dr["ProductID"].ToString());
+                    producto.ProductName = dr["ProductName"].ToString();
+                    producto.SupplierID = Convert.ToInt32(dr["SupplierID"].ToString());
+                    producto.CategoryID = Convert.ToInt32(dr["CategoryID"].ToString());
+                    producto.QuantityPerUnit = dr["QuantityPerUnit"].ToString();
+                    producto.UnitPrice = Convert.ToDecimal(dr["UnitPrice"].ToString());
+                    producto.UnitsInStock = Convert.ToInt32(dr["UnitsInStock"].ToString());
+                    //cargar a la lista los valores de producto
+                    listaProductos.Add(producto);
+                }
+            }
+
+            cn.Close();
+            return listaProductos[0];
+        }
+        public static bool InsertarProductos(ProductoMsg pro)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionM);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" INSERT INTO[dbo].[Products]
                                                 ([ProductName]
                                                     ,[SupplierID]
                                                     ,[CategoryID]
@@ -65,23 +107,33 @@ namespace Datos
                                               VALUES
                               (@nombre,@proovedor,@categoria,@cantidad,@precio,@unit);
                                SELECT SCOPE_IDENTITY();";
-            cmd.Parameters.AddWithValue("@nombre", pro.ProductName);
-            cmd.Parameters.AddWithValue("@proovedor", pro.SupplierID);
-            cmd.Parameters.AddWithValue("@categoria", pro.CategoryID);
-            cmd.Parameters.AddWithValue("@cantidad", pro.QuantityPerUnit);
-            cmd.Parameters.AddWithValue("@precio", pro.UnitPrice);
-            cmd.Parameters.AddWithValue("@unit", pro.UnitsInStock);
-            cmd.CommandType = CommandType.Text;
-            cmd.ExecuteScalar();
-            conexion.Close();
+                cmd.Parameters.AddWithValue("@nombre", pro.ProductName);
+                cmd.Parameters.AddWithValue("@proovedor", pro.SupplierID);
+                cmd.Parameters.AddWithValue("@categoria", pro.CategoryID);
+                cmd.Parameters.AddWithValue("@cantidad", pro.QuantityPerUnit);
+                cmd.Parameters.AddWithValue("@precio", pro.UnitPrice);
+                cmd.Parameters.AddWithValue("@unit", pro.UnitsInStock);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteScalar();
+                conexion.Close();
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+           
         }
-        public static void ActualizarProducto(ProductoMsg pro)
+        public static bool ActualizarProducto(ProductoMsg pro)
         {
-            SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionR);
-            conexion.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexion;
-            cmd.CommandText = @"UPDATE [dbo].[Products]
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionM);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @"UPDATE [dbo].[Products]
                                    SET [ProductName] = @nombre
                                       ,[SupplierID] = @proovedor
                                       ,[CategoryID] = @categoria
@@ -89,29 +141,47 @@ namespace Datos
                                       ,[UnitPrice] = @precio
                                       ,[UnitsInStock] = @unit
                                  WHERE ProductID = @id";
-            cmd.Parameters.AddWithValue("@id", pro.ProductID);
-            cmd.Parameters.AddWithValue("@nombre", pro.ProductName);
-            cmd.Parameters.AddWithValue("@proovedor", pro.SupplierID);
-            cmd.Parameters.AddWithValue("@categoria", pro.CategoryID);
-            cmd.Parameters.AddWithValue("@cantidad", pro.QuantityPerUnit);
-            cmd.Parameters.AddWithValue("@precio", pro.UnitPrice);
-            cmd.Parameters.AddWithValue("@unit", pro.UnitsInStock);
-            cmd.CommandType = CommandType.Text;
-            cmd.ExecuteScalar();
-            conexion.Close();
+                cmd.Parameters.AddWithValue("@id", pro.ProductID);
+                cmd.Parameters.AddWithValue("@nombre", pro.ProductName);
+                cmd.Parameters.AddWithValue("@proovedor", pro.SupplierID);
+                cmd.Parameters.AddWithValue("@categoria", pro.CategoryID);
+                cmd.Parameters.AddWithValue("@cantidad", pro.QuantityPerUnit);
+                cmd.Parameters.AddWithValue("@precio", pro.UnitPrice);
+                cmd.Parameters.AddWithValue("@unit", pro.UnitsInStock);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteScalar();
+                conexion.Close();
+                return true;
+            }
+            catch 
+            {
+
+                return false;
+            }
+            
         }
-        public static void EliminarProducto(int id)
+        public static bool EliminarProducto(ProductoMsg pro)
         {
-            SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionR);
-            conexion.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexion;
-            cmd.CommandText = @"DELETE FROM [dbo].[Products]
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionM);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @"DELETE FROM [dbo].[Products]
                               WHERE  ProductID = @id";
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.CommandType = CommandType.Text;
-            cmd.ExecuteScalar();
-            conexion.Close();
+                cmd.Parameters.AddWithValue("@id", pro.ProductID);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteScalar();
+                conexion.Close();
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+            
         }
     }
 }
