@@ -19,7 +19,7 @@ namespace JsonCruD
         private string url = "http://localhost:52707/ServiceProductos.svc/";
         protected void Page_Load(object sender, EventArgs e)
         {
-            // 52707/ServiceProductos.svc/DevolverProductos 
+            if(!IsPostBack)
             {
                 CargarDatos();
             }
@@ -105,13 +105,20 @@ namespace JsonCruD
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            GridView gr = GridView2.SelectedRow();
-            string id = GridView2.DataKeys[e.RowIndex].Value.ToString();
-            string json = (new WebClient()).DownloadString(url + "DevolverProductos/{0}",id);
-            GridView2.DataSource = JsonConvert.DeserializeObject<DataTable>(json);
-            GridView2.DataBind();
-            */
+            GridViewRow gr = GridView2.SelectedRow;
+            Label1.Text = "Nombre : " + gr.Cells[1].Text + "  ";
+            Label2.Text = "Provedor : " + gr.Cells[2].Text + "  ";
+            Label3.Text = "Categoria : " +  gr.Cells[3].Text + "  ";
+            Label4.Text = "Cantidad : " +  gr.Cells[4].Text + "  ";
+            Label5.Text = "precio Unitario " + gr.Cells[5].Text + "  ";
+            Label6.Text = "Unit In stock : " + gr.Cells[6].Text + "  ";
+            Label1.Visible = true;
+            Label2.Visible = true;
+            Label3.Visible = true;
+            Label4.Visible = true;
+            Label5.Visible = true;
+            Label6.Visible = true;
+            Label_Titulo.Visible = true;
         }
 
         protected void Button_Agregar_Click(object sender, EventArgs e)

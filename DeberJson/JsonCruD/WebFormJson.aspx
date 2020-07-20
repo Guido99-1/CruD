@@ -15,6 +15,13 @@
         .auto-style2 {
             margin-top: 0px;
         }
+        .auto-style3 {
+            text-align: center;
+            color: #990000;
+        }
+        .auto-style4 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -42,7 +49,23 @@
                         <asp:Button ID="Button_Agregar" runat="server" Text="Agregar" OnClick="Button_Agregar_Click" />
                     </td>
                 </tr>
-                
+                <tr>
+                    <td class="auto-style3">
+
+                        <asp:Label ID="Label_Titulo" runat="server" Text="DATOS DEL PRODUCTO SELECCIONADO" Visible="False"></asp:Label>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        <asp:Label ID="Label1" runat="server" Visible="False"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Visible="False"></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Visible="False"></asp:Label>
+                        <asp:Label ID="Label4" runat="server" Visible="False"></asp:Label>
+                        <asp:Label ID="Label5" runat="server" Visible="False"></asp:Label>
+                        <asp:Label ID="Label6" runat="server" Visible="False"></asp:Label>
+                    </td>
+                </tr>
                 <tr>
                     <td >
                         <asp:GridView ID="GridView2" runat="server" Width="100%" AutoGenerateColumns="False" 
@@ -67,11 +90,20 @@
                                  <asp:BoundField DataField="UnitPrice" HeaderText="Precio_Unitario" />
                                  <asp:BoundField DataField="UnitsInStock" HeaderText="UnitsInStock" />
                                          
-                                 <asp:CommandField ShowDeleteButton="True" />
+                                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" >
                                          
-                                 <asp:CommandField ShowEditButton="True" />
+                                 <ControlStyle BackColor="#3333FF" Font-Bold="True" ForeColor="#99CCFF" />
+                                 </asp:CommandField>
                                          
-                                 <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                                 <asp:CommandField ShowEditButton="True" ButtonType="Button" >
+                                         
+                                 <ControlStyle BackColor="#009933" Font-Bold="True" ForeColor="#CCFFCC" />
+                                 </asp:CommandField>
+                                         
+                                 <asp:CommandField ShowDeleteButton="True" ButtonType="Button" >
+                                         
+                                 <ControlStyle BackColor="#CC0000" BorderColor="Red" Font-Bold="True" ForeColor="White" />
+                                 </asp:CommandField>
                                          
                 </Columns>
                         </asp:GridView>
