@@ -17,6 +17,7 @@ namespace JsonCruD
     public partial class WebFormJson : System.Web.UI.Page
     {
         private string url = "http://localhost:52707/ServiceProductos.svc/";
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -75,6 +76,7 @@ namespace JsonCruD
                 WebClient webClient = new WebClient();
                 webClient.Headers["Content-type"] = "application/json";
                 webClient.Encoding = Encoding.UTF8;
+               
                 webClient.UploadString(url + "Eliminar", "DELETE", data);
                 this.Page.Response.Write("<script language='JavaScript'>alert('El dato se a eliminado correctamente')</script>");
                 GridView2.EditIndex = -1;

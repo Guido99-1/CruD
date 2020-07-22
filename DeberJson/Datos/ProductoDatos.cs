@@ -14,7 +14,7 @@ namespace Datos
         public static List<ProductoMsg> DevolverListadoProductos()
         {
             List<ProductoMsg> listaProductos = new List<ProductoMsg>();
-            SqlConnection cn = new SqlConnection(Settings1.Default.ConexionM);
+            SqlConnection cn = new SqlConnection(Settings1.Default.Conexion);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -44,7 +44,6 @@ namespace Datos
                     listaProductos.Add(producto);
                 }
             }
-
             cn.Close();
             return listaProductos;
         }
@@ -52,7 +51,7 @@ namespace Datos
         public static ProductoMsg BuscarProductos(int id)
         {
             List<ProductoMsg> listaProductos = new List<ProductoMsg>();
-            SqlConnection cn = new SqlConnection(Settings1.Default.ConexionM);
+            SqlConnection cn = new SqlConnection(Settings1.Default.Conexion);
             cn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -92,7 +91,7 @@ namespace Datos
         {
             try
             {
-                SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionM);
+                SqlConnection conexion = new SqlConnection(Settings1.Default.Conexion);
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexion;
@@ -129,7 +128,7 @@ namespace Datos
         {
             try
             {
-                SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionM);
+                SqlConnection conexion = new SqlConnection(Settings1.Default.Conexion);
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexion;
@@ -164,7 +163,7 @@ namespace Datos
         {
             try
             {
-                SqlConnection conexion = new SqlConnection(Settings1.Default.ConexionM);
+                SqlConnection conexion = new SqlConnection(Settings1.Default.Conexion);
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexion;

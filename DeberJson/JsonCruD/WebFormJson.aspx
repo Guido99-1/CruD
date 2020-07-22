@@ -29,7 +29,7 @@
         <div>
             <table style="width:100%">
                 <tr>
-                    <td colspan="2" class="auto-style1">CRUD Manzano, Villacrés, Reyes</td>
+                    <td colspan="2" class="auto-style1">CRUD Manzano, Villacrés, Reyes,Lopez</td>
                 </tr>
                 <tr>
                     <td></td>
